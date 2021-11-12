@@ -10,11 +10,14 @@ app.use(cors());
 app.use(express.static(path.resolve(__dirname, "./client/build")));
 
 app.use("/api/news", news);
+app.use("/", (req, res) => {
+ res.send("News Api");
+});
 
 // All other GET requests not handled before will return our React app
-app.get("*", (req, res) => {
- res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
-});
+// app.get("*", (req, res) => {
+//  res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
+// });
 
 const port = process.env.PORT || 9000;
 app.listen(port, () => {
