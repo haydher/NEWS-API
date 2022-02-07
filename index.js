@@ -11,6 +11,10 @@ app.get("/", (req, res) => {
  res.send("News Api");
 });
 
+app.get("/turnServerOn", (req, res) => {
+ res.send({ status: 200 });
+});
+
 app.get("/api/news", (req, res) => {
  let query = "bitcoin";
 
